@@ -1,5 +1,6 @@
 #pragma once
-
+#define FUNCTIONS_H 
+#ifdef FUNCTIONS_H
 double inchesToDegrees(double inches);
 void setDTPosition(double inches);
 void spinDT(double velocity);

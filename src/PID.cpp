@@ -7,8 +7,7 @@
 using namespace vex;
 
 
-void drivePID(double targetInches, double kP = 0.7, double kI = 0.7, double kD = 1.8) {
-void drivePID(double targetInches, double kP, double kI, double kD) {
+void drivePID(double targetInches, double kP = 0.7, double kI = 0.7, double kD = 1.8) { 
 
   double targetDegrees = inchesToDegrees(targetInches);
 
@@ -20,11 +19,10 @@ void drivePID(double targetInches, double kP, double kI, double kD) {
   double lastError = 0;
   double maxIntegral = 100;
 
-
   while (fabs(error) > 4.0) { //Keep running until you’re within 1° of your target
     double leftAvg = (LF.position(degrees) + LM.position(degrees) + LB.position(degrees)) / 3.0;
     double rightAvg = (RF.position(degrees) + RM.position(degrees) + RB.position(degrees)) / 3.0;
-    double avgPos = (leftAvg + rightAvg) / 2.0;
+    double avgPos = (rightAvg + leftAvg) / 2.0;
 
     error = targetDegrees - avgPos;
     integral += error;
@@ -46,21 +44,16 @@ void drivePID(double targetInches, double kP, double kI, double kD) {
     spinDT(power*0.5);
 
     task::sleep(20); // small loop delay
-  }
+  }  
 
   stopDT();
   Controller.Screen.print("done");
   Controller.Screen.print(targetDegrees);
-
 }
 
 //WARNING:kP, kI, and kD values are not correct, need to update yourself
 void turnPID(double targetAngle, double kP = 0.12, double kI = 0.3, double kD = 0.24) {
   
-  double dir =targetAngle/fabs(targetAngle);
- 
-void turnPID(double targetAngle, double kP, double kI, double kD) {
-
   double dir = targetAngle/fabs(targetAngle);
   // Reset inertial and motor encoders
   InertialSensor.setRotation(0, degrees);
@@ -77,7 +70,6 @@ void turnPID(double targetAngle, double kP, double kI, double kD) {
 
 
   // loop til we’re close
-  while (fabs(err) > 3.5) {
   while (fabs(err) > 1.0) {
     err = targetAngle - fabs(InertialSensor.rotation(degrees));
     integ += err;

@@ -141,6 +141,12 @@ void usercontrol(void) {
         middleIntakeMotor.stop();
         topIntakeMotor.stop();
       }
+      if (Controller.ButtonR2.pressing()) {
+    bottomIntakeMotor.spin(forward, 100, percent);
+      middleIntakeMotor.spin(forward, 100, percent);
+      topIntakeMotor.spin(forward, 100, percent); 
+    wait(20, msec);
+    } 
     }
 
   
