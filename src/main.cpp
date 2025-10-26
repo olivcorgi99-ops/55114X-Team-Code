@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
-/*    Author:       katherinezeng                                             */
+/*    Author:       Olivia Du                                             */
 /*    Created:      5/27/2025, 10:30:19 PM                                    */
 /*    Description:  V5 project                                                */
 /*                                                                            */
@@ -96,7 +96,6 @@ bool inauton = false;
 int main();
 // User control function
 void usercontrol(void) {
-  bool slowModeActive = false;
 
   while (true) {
     // ========== DRIVE CONTROL ========== //
@@ -105,10 +104,8 @@ void usercontrol(void) {
     double leftPower  = fwd + turn;
     double rightPower = fwd - turn;
 
-    spinLeftDT(leftPower * 0.8);
-    spinRightDT(rightPower * 0.8);
-    spinLeftDT(leftPower * 0.7);
-    spinRightDT(rightPower * 0.7);
+    spinLeftDT(leftPower * 0.9);
+    spinRightDT(rightPower * 0.9);
 
     // ========== ARM CONTROL ========== //
    // if (Controller.ButtonR1.pressing()) {
@@ -124,32 +121,46 @@ void usercontrol(void) {
 
     // ========== INTAKE ========== //
     //out put for the intake//
-  if (Controller.ButtonL1.pressing()) {
-      bottomIntakeMotor.spin(forward, 100, percent);
-      middleIntakeMotor.spin(reverse, 100, percent);
-      topIntakeMotor.spin(forward, 100, percent); 
-      } 
-  else if (Controller.ButtonL2.pressing()) {
+  //intake it and score middle goal
+  if (Controller.ButtonL2.pressing()) {
+      bottomIntakeMotor.spin(forward, 100, percent); 
+      topIntakeMotor.spin(forward, 100, percent);
+  }
+ //reverse it to score low goal 
+    else if (Controller.ButtonL1.pressing()) {
+      bottomIntakeMotor.spin(reverse, 100, percent);
+      }
+    else if (Controller.ButtonR1.pressing()) { 
       bottomIntakeMotor.spin(reverse, 100, percent);
       middleIntakeMotor.spin(forward, 100, percent);
+      topIntakeMotor.spin(forward, 100, percent);
+    } 
+    //intakes and scores high goal
+    else if (Controller.ButtonR2.pressing()) {
+      bottomIntakeMotor.spin(forward, 100, percent);
+      middleIntakeMotor.spin(reverse, 100, percent);
       topIntakeMotor.spin(reverse, 100, percent); 
-      } 
-  else if (Controller.ButtonR1.pressing()) {
+    }
+
+    else if (Controller.ButtonA.pressing()) {
+      bottomIntakeMotor.spin(forward, 100, percent);
+    }
+   
+    else if (Controller.ButtonB.pressing()) {
+      bottomIntakeMotor.spin(reverse, 100, percent);
+    }
+     else if (Controller.ButtonY.pressing()) {
+      middleIntakeMotor.spin(forward, 100, percent);
+    }
+      else if (Controller.ButtonX.pressing()) {
+      middleIntakeMotor.spin(reverse, 100, percent);
+    }
+    
+    else{
       bottomIntakeMotor.stop();
       middleIntakeMotor.stop();
       topIntakeMotor.stop();
-      }
-  else if (Controller.ButtonR2.pressing()) {
-      bottomIntakeMotor.spin(forward, 100, percent);
-      middleIntakeMotor.spin(reverse, 100, percent);
-      topIntakeMotor.spin(reverse, 100, percent); 
-      } 
     }
-
-  
-  
-   
-    
     // ========== COLOR SENSOR ========== //
     color detectedColor = OpticalSensor.color();
     if (detectedColor == color::blue) {
@@ -169,7 +180,7 @@ void usercontrol(void) {
     // ========== LOOP DELAY ========== //
     wait(20, msec);
   }
-
+}
 //void driver controll(){
 //doble forwards = Controller1.Axis2.position();
 //doble turning = Controller1.Axis4}
@@ -191,9 +202,3 @@ void usercontrol(void) {
     wait(100, msec);
   }
 }
-
-
-
-
-
-

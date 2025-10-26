@@ -34,7 +34,9 @@ vex::digital_out SingleActingPiston(Brain.ThreeWirePort.B);
 
 vex::motor topIntakeMotor(vex::PORT14, vex::gearSetting::ratio6_1, false); //Right Front Motor
 vex::motor middleIntakeMotor(vex::PORT13, vex::gearSetting::ratio6_1, true); //Right Front Motor
-vex::motor  bottomIntakeMotor(vex::PORT12, vex::gearSetting::ratio6_1, false); 
+vex::motor bottomIntakeMotor(vex::PORT12, vex::gearSetting::ratio6_1, false); 
+
+vex::motor_group IntakeMotors(topIntakeMotor,middleIntakeMotor, bottomIntakeMotor);
 
 vex::inertial InertialSensor(vex::PORT1);
 
