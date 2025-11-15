@@ -32,13 +32,14 @@ vex::drivetrain Drivetrain(LeftDrive, RightDrive, 82.55, 280, 300);
 vex::digital_out DoubleActingPiston(Brain.ThreeWirePort.A);
 vex::digital_out SingleActingPiston(Brain.ThreeWirePort.B);
 
-vex::motor topIntakeMotor(vex::PORT14, vex::gearSetting::ratio6_1, false); //Right Front Motor
-vex::motor middleIntakeMotor(vex::PORT13, vex::gearSetting::ratio6_1, true); //Right Front Motor
+vex::motor topIntakeMotor(vex::PORT3, vex::gearSetting::ratio6_1, false); //Right Front Motor
+vex::motor middleIntakeMotor(vex::PORT2, vex::gearSetting::ratio6_1, true); //Right Front Motor
 vex::motor bottomIntakeMotor(vex::PORT12, vex::gearSetting::ratio6_1, false); 
+vex::motor bottombottomIntakeMotor(vex::PORT12, vex::gearSetting::ratio6_1, false); 
 
 vex::motor_group IntakeMotors(topIntakeMotor,middleIntakeMotor, bottomIntakeMotor);
 
-vex::inertial InertialSensor(vex::PORT1);
+vex::inertial InertialSensor(vex::PORT11);
 
 vex::optical OpticalSensor(vex::PORT10);
 
