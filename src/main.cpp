@@ -39,7 +39,6 @@ void pre_auton(void) {
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
 
-
   vexcodeInit();
   displayAutonSelector();
   
@@ -90,73 +89,53 @@ bool inauton = false;
 
 // Drive train functions in functions.cpp
 
-
-
-  void checkDoubleClick();
 // User control function
 void usercontrol(void) {
+  bool prevPressed = false;
+  bool pistonExtended = false;
 
   while (true) {
     // ========== DRIVE CONTROL ========== //
     double fwd = Controller.Axis3.position(percentUnits::pct);
     double turn = Controller.Axis1.position(percentUnits::pct);
-    double leftPower  = fwd + turn;
+    double leftPower = fwd + turn;
     double rightPower = fwd - turn;
 
     spinLeftDT(leftPower * 0.9);
     spinRightDT(rightPower * 0.9);
 
     // ========== ARM CONTROL ========== //
-   // if (Controller.ButtonR1.pressing()) {
-     // Arm1.spin(forward, 75, percent);
-     // Arm2.spin(forward, 75, percent);
-    //} else if (Controller.ButtonR2.pressing()) {
-     // Arm1.spin(reverse, 75, percent);
-     // Arm2.spin(reverse, 75, percent);
-    //} else {
-      //Arm1.stop(hold);
-     // Arm2.stop(hold);
-    //}
+    // if (Controller.ButtonR1.pressing()) {
+    //   Arm1.spin(forward, 75, percent);
+    //   Arm2.spin(forward, 75, percent);
+    // } else if (Controller.ButtonR2.pressing()) {
+    //   Arm1.spin(reverse, 75, percent);
+    //   Arm2.spin(reverse, 75, percent);
+    // } else {
+    //   Arm1.stop(hold);
+    //   Arm2.stop(hold);
+    // }
 
     // ========== INTAKE ========== //
-    //out put for the intake//
-  //intake it and score middle goal
-
-  Brain.Screen.print("Hello");
-
-
-if (Controller.ButtonL1.pressing()) {
-    Brain.Screen.clearScreen();
-    Brain.Screen.print("Button L1 Pressed");  
-    IntakeMotors.spin(forward, 100, percent);
-    } 
-    else if (Controller.ButtonL2.pressing()) {
+    if (Controller.ButtonL1.pressing()) {
+      Brain.Screen.clearScreen();
+      Brain.Screen.print("Button L1 Pressed");
+      IntakeMotors.spin(forward, 100, percent);
+    } else if (Controller.ButtonL2.pressing()) {
       IntakeMotors.spin(reverse, 100, percent);
-    }
-     else {
+    } else {
       IntakeMotors.stop();
     }
 
-
-
     // ========== PISTON CONTROL ========== //
-bool prevPressed = false;
-bool pistonExtended = false; 
-
-
-    while (true){
-      if (Controller.ButtonUp.pressing() && !prevPressed){
-        pistonExtended = !pistonExtended;
-        prevPressed = true;
-        DoubleActingPiston.set(pistonExtended);
-      }
-
-      else if(Controller.ButtonUp.pressing() && prevPressed){
-        prevPressed = false;
-      }
-      wait(100,msec);
+    if (Controller.ButtonUp.pressing() && !prevPressed) {
+      pistonExtended = !pistonExtended;
+      prevPressed = true;
+      DoubleActingPiston.set(pistonExtended);
+    } else if (!Controller.ButtonUp.pressing() && prevPressed) {
+      prevPressed = false;
     }
-    
+
     // ========== COLOR SENSOR ========== //
     color detectedColor = OpticalSensor.color();
     if (detectedColor == color::blue) {
@@ -177,11 +156,11 @@ bool pistonExtended = false;
     wait(20, msec);
   }
 }
-void driver_control(void) {
-double forwards = Controller.Axis2.position();
-double turning = Controller.Axis4.position();
+
+void drivercontrol(void) {
+  double forwards = Controller.Axis2.position();
+  double turning = Controller.Axis4.position();
 }
-  
 
 // Entry point
        int main() {
