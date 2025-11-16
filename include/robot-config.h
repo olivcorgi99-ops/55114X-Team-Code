@@ -19,10 +19,12 @@ extern vex::motor RF;
 extern vex::motor topIntakeMotor;
 extern vex::motor middleIntakeMotor;
 extern vex::motor bottomIntakeMotor;
+extern vex::motor bottombottomIntakeMotor;
 
 
 extern vex::motor_group LeftDrive;
 extern vex::motor_group RightDrive;
+extern vex::motor_group IntakeMotors;
 
 extern vex::drivetrain Drivetrain;
 
