@@ -184,7 +184,7 @@ double turning = Controller.Axis4.position();
   
 
 // Entry point
-       int main() {
+int main() {
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
 
