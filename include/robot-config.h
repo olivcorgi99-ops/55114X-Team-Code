@@ -28,8 +28,8 @@ extern vex::motor_group IntakeMotors;
 
 extern vex::drivetrain Drivetrain;
 
-extern vex::motor Arm1;
-extern vex::motor Arm2;
+//extern vex::motor Arm1;
+//extern vex::motor Arm2;
 
 extern vex::inertial InertialSensor;
 extern vex::optical OpticalSensor;
