@@ -19,6 +19,7 @@ extern vex::motor RF;
 extern vex::motor topIntakeMotor;
 extern vex::motor middleIntakeMotor;
 extern vex::motor bottomIntakeMotor;
+extern vex::motor bottombottomIntakeMotor;
 
 
 extern vex::motor_group LeftDrive;
@@ -26,8 +27,8 @@ extern vex::motor_group RightDrive;
 
 extern vex::drivetrain Drivetrain;
 
-extern vex::motor Arm1;
-extern vex::motor Arm2;
+//extern vex::motor Arm1;
+//extern vex::motor Arm2;
 
 extern vex::inertial InertialSensor;
 extern vex::optical OpticalSensor;

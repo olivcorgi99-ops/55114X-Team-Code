@@ -93,9 +93,9 @@ bool inauton = false;
 
 
   void checkDoubleClick();
-int main();
 // User control function
 void usercontrol(void) {
+//int main() {
 
   while (true) {
     // ========== DRIVE CONTROL ========== //
@@ -122,45 +122,52 @@ void usercontrol(void) {
     // ========== INTAKE ========== //
     //out put for the intake//
   //intake it and score middle goal
-  if (Controller.ButtonL2.pressing()) {
-      bottomIntakeMotor.spin(forward, 100, percent); 
+  Brain.Screen.print("hihi");
+  //intake blocks//
+  if (Controller.ButtonL1.pressing()) {
+    bottombottomIntakeMotor.spin(forward, 100, percent);
       topIntakeMotor.spin(forward, 100, percent);
   }
- //reverse it to score low goal 
-    else if (Controller.ButtonL1.pressing()) {
-      bottomIntakeMotor.spin(reverse, 100, percent);
-      }
-    else if (Controller.ButtonR1.pressing()) { 
-      bottomIntakeMotor.spin(reverse, 100, percent);
-      middleIntakeMotor.spin(forward, 100, percent);
-      topIntakeMotor.spin(forward, 100, percent);
-    } 
-    //intakes and scores high goal
-    else if (Controller.ButtonR2.pressing()) {
-      bottomIntakeMotor.spin(forward, 100, percent);
+ //score middle low goal//
+    else if (Controller.ButtonL2.pressing()) {
+      bottombottomIntakeMotor.spin(reverse, 100, percent);
+      topIntakeMotor.spin(reverse, 100, percent);
       middleIntakeMotor.spin(reverse, 100, percent);
-      topIntakeMotor.spin(reverse, 100, percent); 
-    }
+      bottomIntakeMotor.spin(reverse, 100, percent);
 
-    else if (Controller.ButtonA.pressing()) {
-      bottomIntakeMotor.spin(forward, 100, percent);
-    }
+
+
+      
+  
+    } 
+    
    
-    else if (Controller.ButtonB.pressing()) {
-      bottomIntakeMotor.spin(reverse, 100, percent);
-    }
-     else if (Controller.ButtonY.pressing()) {
-      middleIntakeMotor.spin(forward, 100, percent);
-    }
-      else if (Controller.ButtonX.pressing()) {
-      middleIntakeMotor.spin(reverse, 100, percent);
-    }
     
     else{
       bottomIntakeMotor.stop();
       middleIntakeMotor.stop();
       topIntakeMotor.stop();
+      bottombottomIntakeMotor.stop();
     }
+  
+  
+   //pnumatics code//
+    bool prevPressed = false;
+    bool pistonExtended = false;
+
+   
+      if (Controller.ButtonA.pressing() && !prevPressed){
+        pistonExtended = !pistonExtended;
+        prevPressed = true;
+        DoubleActingPiston.set(pistonExtended);
+      }
+      else if (Controller.ButtonUp.pressing() && prevPressed){
+        prevPressed = false;
+      }
+      wait(100,msec);
+      
+    
+   
     // ========== COLOR SENSOR ========== //
     color detectedColor = OpticalSensor.color();
     if (detectedColor == color::blue) {
@@ -188,7 +195,7 @@ void usercontrol(void) {
   
 
 // Entry point
-       int main() {
+ int main() {
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
 
@@ -198,7 +205,8 @@ void usercontrol(void) {
   //Competition.test_driver();
 
 
-  while (true) {
+  while (true)
     wait(100, msec);
-  }
+  
 }
+  
