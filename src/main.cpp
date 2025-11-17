@@ -133,14 +133,26 @@ void usercontrol(void) {
       bottombottomIntakeMotor.spin(reverse, 100, percent);
       topIntakeMotor.spin(reverse, 100, percent);
       middleIntakeMotor.spin(reverse, 100, percent);
-      bottomIntakeMotor.spin(reverse, 100, percent);
-
-
-
-      
-  
     } 
-    
+    //scores middle high goal//
+    else if (Controller.ButtonR1.pressing()){
+      bottombottomIntakeMotor.spin(forward, 100, percent);
+      topIntakeMotor.spin(forward, 100, percent);
+      bottomIntakeMotor.spin(forward, 100, percent);
+      middleIntakeMotor.spin(reverse, 100, percent);
+    }
+   //scores long goal//
+    else if (Controller.ButtonR2.pressing()) {
+    bottombottomIntakeMotor.spin(forward, 100, percent);
+      topIntakeMotor.spin(forward, 100, percent);
+      middleIntakeMotor.spin(forward, 100, percent);
+      bottomIntakeMotor.spin(reverse, 100, percent);
+  }
+  //helps intake more blocks// 
+  else if (Controller.ButtonX.pressing()){
+    bottombottomIntakeMotor.spin(forward, 100, percent);
+  }
+  
    
     
     else{

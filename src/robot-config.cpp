@@ -29,7 +29,7 @@ vex::drivetrain Drivetrain(LeftDrive, RightDrive, 82.55, 280, 300);
 //vex::motor Arm1(vex::PORT1, vex::gearSetting::ratio18_1, true); //Arm motor
 //vex::motor Arm2(vex::PORT2, vex::gearSetting::ratio18_1, true); //Arm motor
 
-vex::digital_out DoubleActingPiston(Brain.ThreeWirePort.H);
+vex::digital_out DoubleActingPiston(Brain.ThreeWirePort.A);
 vex::digital_out SingleActingPiston(Brain.ThreeWirePort.B);
 
 vex::motor topIntakeMotor(vex::PORT3, vex::gearSetting::ratio6_1, false); //Right Front Motor
