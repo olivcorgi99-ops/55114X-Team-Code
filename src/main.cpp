@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
-/*    Author:       55114X                                                    */
+/*    Author:       Olivia Du                                             */
 /*    Created:      5/27/2025, 10:30:19 PM                                    */
 /*    Description:  V5 project                                                */
 /*                                                                            */
@@ -39,8 +39,10 @@ void pre_auton(void) {
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
 
+
   vexcodeInit();
   displayAutonSelector();
+  
 }
 
 /*---------------------------------------------------------------------------*/
@@ -54,6 +56,7 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
+  
   switch (getSelectedAuton()) {
     case 0:
       rightAuton();
@@ -68,6 +71,9 @@ void autonomous(void) {
       Brain.Screen.print("No valid auton selected!");
       break;
   }
+ 
+
+
 }
 
 /*---------------------------------------------------------------------------*/
@@ -84,9 +90,13 @@ bool inauton = false;
 
 // Drive train functions in functions.cpp
 
-void checkDoubleClick();
+
+
+  void checkDoubleClick();
 // User control function
 void usercontrol(void) {
+//int main() {
+
   while (true) {
     // ========== DRIVE CONTROL ========== //
     double fwd = Controller.Axis3.position(percentUnits::pct);
@@ -98,53 +108,78 @@ void usercontrol(void) {
     spinRightDT(rightPower * 0.9);
 
     // ========== ARM CONTROL ========== //
-    // if (Controller.ButtonR1.pressing()) {
-    // Arm1.spin(forward, 75, percent);
-    // Arm2.spin(forward, 75, percent);
+   // if (Controller.ButtonR1.pressing()) {
+     // Arm1.spin(forward, 75, percent);
+     // Arm2.spin(forward, 75, percent);
     //} else if (Controller.ButtonR2.pressing()) {
-    // Arm1.spin(reverse, 75, percent);
-    // Arm2.spin(reverse, 75, percent);
+     // Arm1.spin(reverse, 75, percent);
+     // Arm2.spin(reverse, 75, percent);
     //} else {
-    //Arm1.stop(hold);
-    // Arm2.stop(hold);
+      //Arm1.stop(hold);
+     // Arm2.stop(hold);
     //}
 
     // ========== INTAKE ========== //
     //out put for the intake//
-    //intake it and score middle goal
-
-    Brain.Screen.print("Hello");
-
-
-    if (Controller.ButtonL1.pressing()) {
-      Brain.Screen.clearScreen();
-      Brain.Screen.print("Button L1 Pressed");
-      IntakeMotors.spin(forward, 100, percent);
-    }
+  //intake it and score middle goal
+  Brain.Screen.print("hihi");
+  //intake blocks//
+  if (Controller.ButtonL1.pressing()) {
+    bottombottomIntakeMotor.spin(forward, 100, percent);
+      topIntakeMotor.spin(forward, 100, percent);
+  }
+ //score middle low goal//
     else if (Controller.ButtonL2.pressing()) {
-      IntakeMotors.spin(reverse, 100, percent);
+      bottombottomIntakeMotor.spin(reverse, 100, percent);
+      topIntakeMotor.spin(reverse, 100, percent);
+      middleIntakeMotor.spin(reverse, 100, percent);
+    } 
+    //scores middle high goal//
+    else if (Controller.ButtonR1.pressing()){
+      bottombottomIntakeMotor.spin(forward, 100, percent);
+      topIntakeMotor.spin(forward, 100, percent);
+      bottomIntakeMotor.spin(forward, 100, percent);
+      middleIntakeMotor.spin(reverse, 100, percent);
     }
-    else {
-      IntakeMotors.stop();
+   //scores long goal//
+    else if (Controller.ButtonR2.pressing()) {
+    bottombottomIntakeMotor.spin(forward, 100, percent);
+      topIntakeMotor.spin(forward, 100, percent);
+      middleIntakeMotor.spin(forward, 100, percent);
+      bottomIntakeMotor.spin(reverse, 100, percent);
+  }
+  //helps intake more blocks// 
+  else if (Controller.ButtonX.pressing()){
+    bottombottomIntakeMotor.spin(forward, 100, percent);
+  }
+  
+   
+    
+    else{
+      bottomIntakeMotor.stop();
+      middleIntakeMotor.stop();
+      topIntakeMotor.stop();
+      bottombottomIntakeMotor.stop();
     }
-
-    // ========== PISTON CONTROL ========== //
+  
+  
+   //pnumatics code//
     bool prevPressed = false;
     bool pistonExtended = false;
 
-    while (true) {
-      if (Controller.ButtonUp.pressing() && !prevPressed) {
+   
+      if (Controller.ButtonA.pressing() && !prevPressed){
         pistonExtended = !pistonExtended;
         prevPressed = true;
         DoubleActingPiston.set(pistonExtended);
       }
-
-      else if(Controller.ButtonUp.pressing() && prevPressed) {
+      else if (Controller.ButtonUp.pressing() && prevPressed){
         prevPressed = false;
       }
       wait(100,msec);
-    }
+      
     
+   
     // ========== COLOR SENSOR ========== //
     color detectedColor = OpticalSensor.color();
     if (detectedColor == color::blue) {
@@ -165,22 +200,25 @@ void usercontrol(void) {
     wait(20, msec);
   }
 }
+//void driver controll(){
+//doble forwards = Controller1.Axis2.position();
+//doble turning = Controller1.Axis4}
 
-void driver_control(void) {
-  double forwards = Controller.Axis2.position();
-  double turning = Controller.Axis4.position();
-}
+  
 
 // Entry point
-int main() {
+ int main() {
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
 
+  
   pre_auton();
   //Competition.test_auton();
   //Competition.test_driver();
 
-  while (true) {
+
+  while (true)
     wait(100, msec);
-  }
+  
 }
+  
