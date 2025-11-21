@@ -126,28 +126,28 @@ void usercontrol(void) {
   //intake blocks//
   if (Controller.ButtonL1.pressing()) {
     bottombottomIntakeMotor.spin(forward, 100, percent);
-      topIntakeMotor.spin(forward, 100, percent);
+      middleIntakeMotor.spin(reverse, 100, percent);
   }
- //score middle low goal//
+ //middle high goal//
     else if (Controller.ButtonL2.pressing()) {
       bottombottomIntakeMotor.spin(reverse, 100, percent);
-      topIntakeMotor.spin(reverse, 100, percent);
       middleIntakeMotor.spin(reverse, 100, percent);
+    topIntakeMotor.spin(forward, 100, percent);
     } 
-    //scores middle high goal//
+    // long goal //
     else if (Controller.ButtonR1.pressing()){
       bottombottomIntakeMotor.spin(forward, 100, percent);
-      topIntakeMotor.spin(forward, 100, percent);
-      bottomIntakeMotor.spin(forward, 100, percent);
       middleIntakeMotor.spin(reverse, 100, percent);
+      bottomIntakeMotor.spin(forward, 100, percent);
+      topIntakeMotor.spin(reverse, 100, percent);
     }
-   //scores long goal//
+   //middle high goal//
     else if (Controller.ButtonR2.pressing()) {
-    bottombottomIntakeMotor.spin(forward, 100, percent);
-      topIntakeMotor.spin(forward, 100, percent);
-      middleIntakeMotor.spin(forward, 100, percent);
-      bottomIntakeMotor.spin(reverse, 100, percent);
-  }
+    bottombottomIntakeMotor.spin(reverse, 100, percent);
+    middleIntakeMotor.spin(forward, 100, percent);
+    topIntakeMotor.spin(forward, 100, percent);
+    bottomIntakeMotor.spin(reverse, 100, percent);
+    }
   //helps intake more blocks// 
   else if (Controller.ButtonX.pressing()){
     bottombottomIntakeMotor.spin(forward, 100, percent);
@@ -164,20 +164,19 @@ void usercontrol(void) {
   
   
    //pnumatics code//
-    bool prevPressed = false;
-    bool pistonExtended = false;
+  bool prevPressed = false;
+bool pistonExtended = false;
 
-   
-      if (Controller.ButtonA.pressing() && !prevPressed){
-        pistonExtended = !pistonExtended;
-        prevPressed = true;
-        DoubleActingPiston.set(pistonExtended);
-      }
-      else if (Controller.ButtonUp.pressing() && prevPressed){
-        prevPressed = false;
-      }
-      wait(100,msec);
-      
+if (Controller.ButtonA.pressing() && !prevPressed) {
+    pistonExtended = !pistonExtended;
+    prevPressed = true;
+    DoubleActingPiston.set(pistonExtended);
+}
+else if (!Controller.ButtonA.pressing() && prevPressed) {
+    prevPressed = false;
+}
+
+wait(100, msec);
     
    
     // ========== COLOR SENSOR ========== //
