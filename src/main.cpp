@@ -97,7 +97,11 @@ bool inauton = false;
 void usercontrol(void) {
 //int main() {
 
-  while (true) {
+   //pnumatics code//
+  bool prevPressed = false;
+bool pistonExtended = false;
+ 
+while (true) {
     // ========== DRIVE CONTROL ========== //
     double fwd = Controller.Axis3.position(percentUnits::pct);
     double turn = Controller.Axis1.position(percentUnits::pct);
@@ -164,10 +168,9 @@ void usercontrol(void) {
   
   
    //pnumatics code//
-  bool prevPressed = false;
-bool pistonExtended = false;
-
+ 
 if (Controller.ButtonA.pressing() && !prevPressed) {
+  
     pistonExtended = !pistonExtended;
     prevPressed = true;
     DoubleActingPiston.set(pistonExtended);
@@ -176,7 +179,7 @@ else if (!Controller.ButtonA.pressing() && prevPressed) {
     prevPressed = false;
 }
 
-wait(100, msec);
+wait(20, msec);
     
    
     // ========== COLOR SENSOR ========== //
