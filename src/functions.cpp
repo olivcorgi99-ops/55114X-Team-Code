@@ -71,8 +71,8 @@ void runIntake(){
     topIntakeMotor.spin(forward, 100, percent);
 }
 void runoutake(){
-    bottomIntakeMotor.spin(reverse, 100, percent);
-    middleIntakeMotor.spin(forward, 100, percent);
+    bottomIntakeMotor.spin(forward, 100, percent);
+    middleIntakeMotor.spin(reverse, 100, percent);
     topIntakeMotor.spin(reverse, 100, percent);
 }
 

@@ -156,6 +156,10 @@ while (true) {
   else if (Controller.ButtonX.pressing()){
     bottombottomIntakeMotor.spin(forward, 100, percent);
   }
+
+  else if (Controller.ButtonB.pressing()){
+    bottombottomIntakeMotor.spin(reverse, 100, percent);
+  }
   
    
     
