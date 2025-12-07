@@ -69,11 +69,12 @@ void runIntake(){
     bottomIntakeMotor.spin(forward, 100, percent);
     middleIntakeMotor.spin(reverse, 100, percent);
     topIntakeMotor.spin(forward, 100, percent);
+     bottombottomIntakeMotor.spin(forward, 100, percent);
 }
 void runoutake(){
-    bottomIntakeMotor.spin(forward, 100, percent);
-    middleIntakeMotor.spin(reverse, 100, percent);
-    topIntakeMotor.spin(reverse, 100, percent);
+    bottomIntakeMotor.spin(reverse, 50, percent);
+    middleIntakeMotor.spin(reverse, 50, percent);
+    topIntakeMotor.spin(reverse, 50, percent);
 }
 
 void stopIntake(){
@@ -82,6 +83,10 @@ void stopIntake(){
     topIntakeMotor.stop();
 }
 
+void curve(double leftPower, double rightPower) {
+ spinLeftDT(leftPower * 0.2);
+ spinRightDT(rightPower * 0.9);
+}
 
 
 

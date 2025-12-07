@@ -12,9 +12,8 @@ void turnForTime(double velocity, double time);
 void runIntake();
 void stopIntake();
 void runoutake();
-
 void spinDTPosition(double velocity, double targetInches);
 void turnForTime(double velocity, double time);
-
+void curve();
 
 #endif //end of define
