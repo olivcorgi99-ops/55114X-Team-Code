@@ -55,6 +55,16 @@ void pre_auton(void) {
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
+
+
+
+
+
+
+
+
+
+//67
 void autonomous(void) {
   
   switch (getSelectedAuton()) {
@@ -126,7 +136,6 @@ while (true) {
     // ========== INTAKE ========== //
     //out put for the intake//
   //intake it and score middle goal
-  Brain.Screen.print("hihi");
   //intake blocks//
   if (Controller.ButtonL1.pressing()) {
     bottombottomIntakeMotor.spin(forward, 100, percent);
@@ -156,6 +165,10 @@ while (true) {
   else if (Controller.ButtonX.pressing()){
     bottombottomIntakeMotor.spin(forward, 100, percent);
   }
+
+  else if (Controller.ButtonB.pressing()){
+    bottombottomIntakeMotor.spin(reverse, 100, percent);
+  }
   
    
     
@@ -176,6 +189,19 @@ if (Controller.ButtonA.pressing() && !prevPressed) {
     DoubleActingPiston.set(pistonExtended);
 }
 else if (!Controller.ButtonA.pressing() && prevPressed) {
+    prevPressed = false;
+}
+
+wait(20, msec);
+
+
+if (Controller.ButtonY.pressing() && !prevPressed) {
+  
+    pistonExtended = !pistonExtended;
+    prevPressed = true;
+    DoubleActingPiston2.set(pistonExtended);
+}
+else if (!Controller.ButtonY.pressing() && prevPressed) {
     prevPressed = false;
 }
 
