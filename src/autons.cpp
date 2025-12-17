@@ -15,11 +15,11 @@ runoutake();
 wait(2, sec);
 stopIntake();
 runIntake();
-drivePID(-6, 0.2, 0, 0);
+drivePID(-60, 0.2, 0, 0);
 turnPID(60, 0.3, 0, 0);
 drivePIDSettings setting;
 setting.maxSpeed = 30;
-drivePIDPlus(-10, 0.2, 0, 0, setting);
+drivePIDPlus(-40, 0.2, 0, 0, setting);
 wait(2, sec);
 
 } 

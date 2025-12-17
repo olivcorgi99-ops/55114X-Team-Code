@@ -24,6 +24,7 @@ extern vex::motor bottombottomIntakeMotor;
 
 extern vex::motor_group LeftDrive;
 extern vex::motor_group RightDrive;
+extern vex::motor_group IntakeMotors;
 
 extern vex::drivetrain Drivetrain;
 
@@ -34,6 +35,7 @@ extern vex::inertial InertialSensor;
 extern vex::optical OpticalSensor;
 
 extern vex::digital_out DoubleActingPiston;
+extern vex::digital_out DoubleActingPiston2;
 extern vex::digital_out SingleActingPiston;
 
 extern vex::digital_out matchloader;
