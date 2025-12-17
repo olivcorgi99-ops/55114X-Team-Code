@@ -84,7 +84,7 @@ void stopIntake(){
 }
 
 void curve(double leftPower, double rightPower) {
- spinLeftDT(leftPower * 0.2);
+ spinLeftDT(leftPower * 0.9);
  spinRightDT(rightPower * 0.9);
 }
 

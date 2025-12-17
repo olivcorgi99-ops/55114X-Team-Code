@@ -8,7 +8,7 @@
 using namespace vex;
 
 
-//red left side of the field//
+//red left side of the field with middle goal//
 void leftAuton() {
 drivePID(30, 0.2, 0, 0);
 runoutake();
@@ -16,13 +16,16 @@ wait(2, sec);
 stopIntake();
 runIntake();
 drivePID(-6, 0.2, 0, 0);
-turnPID(55, 0.3, 0, 0);
-drivePID(-10, 0.2, 0, 0);
+turnPID(60, 0.3, 0, 0);
+drivePIDSettings setting;
+setting.maxSpeed = 30;
+drivePIDPlus(-10, 0.2, 0, 0, setting);
+wait(2, sec);
+
+} 
 
 
-}
-
-//red right side of the feild//
+//red right side of the feild high goal//
 void rightAuton() {
 drivePID(28, 0.2, 0, 0);
   turnPID(83, 0.3, 0, 0);
@@ -34,10 +37,43 @@ drivePID(28, 0.2, 0, 0);
  turnPID(-100, 0.3, 0, 0);
 }
 
+//to extend the match loader set to true and to retract set to false//
 void skillsAuton() {
-  drivePID(12, 0.5, 0.0, 0.0);
-  
-
+  drivePID(0, 0, 0, 0);
+  turnPID(0, 0, 0, 0);
+  matchloader.set(true);
+  wait(2, sec);
+  matchloader.set(false);
+  drivePID(-1, 0, 0, 0);
+  runoutake();
+ wait(2, sec);
+ stopIntake();
+  drivePID(-1, 0, 0, 0);
+ turnPID(-0, 0, 0, 0);
+  drivePID(0, 0, 0, 0);
+  turnPID(0, 0, 0, 0);
+  drivePID(0, 0, 0, 0);
+  matchloader.set(true);
+ wait(3, sec);
+matchloader.set(false);
+ drivePID(0, 0, 0, 0);
+  runoutake();
+  wait(2, sec);
+stopIntake();
+drivePID(-0, 0, 0, 0);
+turnPID(0, 0, 0, 0);
+drivePID(0, 0, 0, 0);
+turnPID(0, 0, 0, 0);
+ drivePID(0, 0, 0, 0);
+  matchloader.set(true);
+  wait(2, sec);
+  matchloader.set(false);
+  drivePID(-0, 0, 0, 0);
+  runIntake();
+  wait(2, sec);
+  stopIntake();
+   drivePID(-0, 0, 0, 0);
+    
 }
   
   

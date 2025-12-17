@@ -42,6 +42,8 @@ vex::inertial InertialSensor(vex::PORT20);
 
 vex::optical OpticalSensor(vex::PORT18);
 
+vex::digital_out matchloader = vex::digital_out(Brain.ThreeWirePort.A);
+
 void vexcodeInit() {
   InertialSensor.calibrate();
   DoubleActingPiston.set(false); // retracted

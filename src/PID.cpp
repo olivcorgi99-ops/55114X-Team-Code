@@ -51,6 +51,51 @@ void drivePID(double targetInches, double kP = 0.7, double kI = 0.7, double kD =
   Controller.Screen.print(targetDegrees);
 }
 
+
+void drivePIDPlus(double targetInches, double kP, double kI, double kD, drivePIDSettings settings){ 
+
+  double targetDegrees = inchesToDegrees(targetInches);
+
+  setDTPosition(0); //reset encoders
+
+  double error = targetDegrees;
+  double integral = 0;
+  double derivative = 0;
+  double lastError = 0;
+  double maxIntegral = 100;
+
+  while (fabs(error) > 4.0) { //Keep running until you’re within 1° of your target
+    double leftAvg = (LF.position(degrees) + LM.position(degrees) + LB.position(degrees)) / 3.0;
+    double rightAvg = (RF.position(degrees) + RM.position(degrees) + RB.position(degrees)) / 3.0;
+    double avgPos = (rightAvg + leftAvg) / 2.0;
+
+    error = targetDegrees - avgPos;
+    integral += error;
+
+    // Anti-windup
+    if (integral > maxIntegral) integral = maxIntegral;
+    if (integral < -maxIntegral) integral = -maxIntegral;
+
+    derivative = error - lastError;
+    lastError = error;
+
+    double power = (kP * error) + (kI * integral) + (kD * derivative);
+
+    // Clamp output
+    if (power > fabs(settings.maxSpeed)) power = fabs(settings.maxSpeed);
+    if (power < -fabs(settings.maxSpeed)) power = - fabs(settings.maxSpeed);
+
+    spinDT(power*0.7);
+    spinDT(power*0.5);
+
+    task::sleep(20); // small loop delay
+  }  
+
+  stopDT();
+  Controller.Screen.print("done");
+  Controller.Screen.print(targetDegrees);
+}
+
 //WARNING:kP, kI, and kD values are not correct, need to update yourself
 void turnPID(double targetAngle, double kP = 0.12, double kI = 0.3, double kD = 0.24) {
   
