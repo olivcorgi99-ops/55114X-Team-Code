@@ -35,7 +35,7 @@ void displayAutonSelector() {
 
     Controller.Screen.clearScreen();
     Controller.Screen.setCursor(1, 1);
-    // Controller.Screen.print("Auton: %s", autonNames[selectedAuton]);
+     Controller.Screen.print("Auton: %s", autonNames[selectedAuton]);
     task::sleep(300);
 
   }

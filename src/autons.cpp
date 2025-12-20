@@ -10,19 +10,21 @@ using namespace vex;
 
 //red left side of the field with middle goal//
 void leftAuton() {
-drivePID(30, 0.2, 0, 0);
+drivePID(31, 0.2, 0, 0);
 runoutake();
 wait(2, sec);
 stopIntake();
 runIntake();
-drivePID(-60, 0.2, 0, 0);
+drivePID(-9, 0.2, 0, 0);
 turnPID(60, 0.3, 0, 0);
+drivePID(-5, 0.2, 0, 0);
 drivePIDSettings setting;
-setting.maxSpeed = 100;
-drivePIDPlus(-100, 0.2, 0, 0);
-wait(2, sec);
+setting.maxSpeed = 20;
+drivePIDPlus(-10, 0.1, 0, 0);
+wait(0.70, sec);
 stopIntake();
 } 
+
 
 
 //red right side of the feild high goal//

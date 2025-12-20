@@ -110,6 +110,8 @@ void usercontrol(void) {
    //pnumatics code//
   bool prevPressed = false;
 bool pistonExtended = false;
+  bool prevPressed2 = false;
+bool pistonExtended2 = false;
  
 while (true) {
     // ========== DRIVE CONTROL ========== //
@@ -195,14 +197,14 @@ else if (!Controller.ButtonA.pressing() && prevPressed) {
 wait(20, msec);
 
 
-if (Controller.ButtonY.pressing() && !prevPressed) {
+if (Controller.ButtonY.pressing() && !prevPressed2) {
   
-    pistonExtended = !pistonExtended;
-    prevPressed = true;
-    DoubleActingPiston2.set(pistonExtended);
+    pistonExtended2 = !pistonExtended2;
+    prevPressed2 = true;
+    DoubleActingPiston2.set(pistonExtended2);
 }
-else if (!Controller.ButtonY.pressing() && prevPressed) {
-    prevPressed = false;
+else if (!Controller.ButtonY.pressing() && prevPressed2) {
+    prevPressed2 = false;
 }
 
 wait(20, msec);

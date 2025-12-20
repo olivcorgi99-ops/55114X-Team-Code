@@ -81,6 +81,7 @@ void stopIntake(){
     bottomIntakeMotor.stop();
     middleIntakeMotor.stop();
     topIntakeMotor.stop();
+    bottombottomIntakeMotor.stop();
 }
 
 void curve(double leftPower, double rightPower) {
