@@ -15,13 +15,9 @@ runoutake();
 wait(2, sec);
 stopIntake();
 runIntake();
-drivePID(-9, 0.2, 0, 0);
+drivePID(-8, 0.2, 0, 0);
 turnPID(60, 0.3, 0, 0);
-drivePID(-5, 0.2, 0, 0);
-drivePIDSettings setting;
-setting.maxSpeed = 20;
-drivePIDPlus(-10, 0.1, 0, 0);
-wait(0.70, sec);
+drivePID(-7, 0.04, 0, 0);
 stopIntake();
 } 
 
@@ -41,41 +37,8 @@ drivePID(28, 0.2, 0, 0);
 
 //to extend the match loader set to true and to retract set to false//
 void skillsAuton() {
-  drivePID(0, 0, 0, 0);
-  turnPID(0, 0, 0, 0);
-  // matchloader.set(true);
-  // wait(2, sec);
-  // matchloader.set(false);
-  drivePID(-1, 0, 0, 0);
-  runoutake();
- wait(2, sec);
- stopIntake();
-  drivePID(-1, 0, 0, 0);
- turnPID(-0, 0, 0, 0);
-  drivePID(0, 0, 0, 0);
-  turnPID(0, 0, 0, 0);
-  drivePID(0, 0, 0, 0);
-//   matchloader.set(true);
-//  wait(3, sec);
-// matchloader.set(false);
- drivePID(0, 0, 0, 0);
-  runoutake();
-  wait(2, sec);
-stopIntake();
-drivePID(-0, 0, 0, 0);
-turnPID(0, 0, 0, 0);
-drivePID(0, 0, 0, 0);
-turnPID(0, 0, 0, 0);
- drivePID(0, 0, 0, 0);
-  // matchloader.set(true);
-  // wait(2, sec);
-  // matchloader.set(false);
-  drivePID(-0, 0, 0, 0);
-  runIntake();
-  wait(2, sec);
-  stopIntake();
-   drivePID(-0, 0, 0, 0);
-    
+   
+    drivePID(100, 0.05, 0, 0);
 }
   
   
