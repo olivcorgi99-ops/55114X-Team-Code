@@ -14,11 +14,15 @@ drivePID(31, 0.2, 0, 0);
 runoutake();
 wait(2, sec);
 stopIntake();
-runIntake();
+runIntakeWithoutTopMotor();
 drivePID(-8, 0.2, 0, 0);
 turnPID(60, 0.3, 0, 0);
-drivePID(-7, 0.04, 0, 0);
+drivePID(-15, 0.08, 0, 0);
 stopIntake();
+turnPID(120, 0.2, 0, 0);
+drivePID(-9, 0.2, 0, 0);
+runOutakeBottomMiddleGoal();
+
 } 
 
 
@@ -38,7 +42,7 @@ drivePID(28, 0.2, 0, 0);
 //to extend the match loader set to true and to retract set to false//
 void skillsAuton() {
    
-    drivePID(100, 0.05, 0, 0);
+    drivePID(100, 0.5, 0, 0);
 }
   
   

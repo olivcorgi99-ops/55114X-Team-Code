@@ -10,10 +10,13 @@ void spinLeftDT(double velocity);
 void spinDTPosition(double velocity, double targetInches);
 void turnForTime(double velocity, double time);
 void runIntake();
+void runIntakeWithoutTopMotor();
 void stopIntake();
 void runoutake();
+void runOutakeBottomMiddleGoal();
 void spinDTPosition(double velocity, double targetInches);
 void turnForTime(double velocity, double time);
 void curve(double leftPower, double rightPower);
+
 
 #endif //end of define
