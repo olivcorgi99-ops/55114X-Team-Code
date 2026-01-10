@@ -76,7 +76,11 @@ void runIntakeWithoutTopMotor(){
     bottomIntakeMotor.spin(forward, 100, percent);
     middleIntakeMotor.spin(reverse, 100, percent);
      bottombottomIntakeMotor.spin(forward, 100, percent);
+<<<<<<< Updated upstream
 }
+=======
+} 
+>>>>>>> Stashed changes
 
 void runoutake(){
     bottomIntakeMotor.spin(reverse, 50, percent);
@@ -97,6 +101,16 @@ void stopIntake(){
     topIntakeMotor.stop();
     bottombottomIntakeMotor.stop();
 }
+
+void runOutakeBottomMiddleGoal(){
+     bottomIntakeMotor.spin(reverse, 100, percent);
+    middleIntakeMotor.spin(forward, 100, percent);
+    topIntakeMotor.spin(forward, 100, percent);
+    bottombottomIntakeMotor.spin(reverse, 100, percent);
+
+
+}
+
 
 void curve(double leftPower, double rightPower) {
  spinLeftDT(leftPower * 0.9);

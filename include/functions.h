@@ -17,6 +17,8 @@ void runOutakeBottomMiddleGoal();
 void spinDTPosition(double velocity, double targetInches);
 void turnForTime(double velocity, double time);
 void curve(double leftPower, double rightPower);
+void runIntakeWithoutTopMotor();
+void runOutakeBottomMiddleGoal();
 
 
 #endif //end of define
