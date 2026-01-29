@@ -19,6 +19,7 @@ void turnForTime(double velocity, double time);
 void curve(double leftPower, double rightPower);
 void runIntakeWithoutTopMotor();
 void runOutakeBottomMiddleGoal();
+void scoreLongGoal();
 
 
 #endif //end of define
