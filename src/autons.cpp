@@ -10,7 +10,8 @@ using namespace vex;
 
 //red left side of the field with middle goal//
 void leftAuton() {
-drivePID(3, 0.3, 0, 0);
+runIntake();
+drivePID(-17, 0.23, 0, 0);
 
 } 
 
