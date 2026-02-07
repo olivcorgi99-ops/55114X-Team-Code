@@ -11,6 +11,7 @@ If it seems like some of your motors are running against eachother in the drivet
 */
 
 vex::brain Brain;
+
 vex::controller Controller(vex::controllerType::primary);
 vex::motor LB(vex::PORT3, vex::gearSetting::ratio6_1, true); //Left Back Motor
 vex::motor LM(vex::PORT13,  vex::gearSetting::ratio6_1, true); //Left Middle Motor

@@ -8,15 +8,22 @@
 using namespace vex;
 
 
-//red left side of the field with middle goal//
+//red left side of the field with middle high goal//
 void leftAuton() {
-drivePID(3, 0.3, 0, 0);
-
+drivePID(-6.5, 0.3, 0, 0);
+turnPID(-90, 0.25, 0, 0);
+runIntakeWithoutTopMotor();
+drivePID(-11, 0.3, 0, 0);
+drivePID(-9, 0.15, 0, 0);
+turnPID(137, 0.2, 0, 0); 
+drivePID(12.9, 0.2, 0, 0);  
+scoreLongGoal();
+wait(5, sec);
 } 
 
 
 
-//red right side of the feild high goal//
+//red right side of the feild with middle high and low goal//
 void rightAuton() {
 
 
