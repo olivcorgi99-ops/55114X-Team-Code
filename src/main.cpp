@@ -123,32 +123,22 @@ while (true) {
     spinLeftDT(leftPower * 0.9);
     spinRightDT(rightPower * 0.9);
 
-    // ========== ARM CONTROL ========== //
-   // if (Controller.ButtonR1.pressing()) {
-     // Arm1.spin(forward, 75, percent);
-     // Arm2.spin(forward, 75, percent);
-    //} else if (Controller.ButtonR2.pressing()) {
-     // Arm1.spin(reverse, 75, percent);
-     // Arm2.spin(reverse, 75, percent);
-    //} else {
-      //Arm1.stop(hold);
-     // Arm2.stop(hold);
-    //}
-
+   
     // ========== INTAKE ========== //
     //out put for the intake//
   //intake it and score middle goal
   //intake blocks//
+
+
+//for rubberflappy intake//
   if (Controller.ButtonL1.pressing()) {
     bottombottomIntakeMotor.spin(forward, 100, percent);
-      middleIntakeMotor.spin(reverse, 100, percent);
   }
- //middle high goal//
+      //middle low goal (new robot)//
     else if (Controller.ButtonL2.pressing()) {
       bottombottomIntakeMotor.spin(reverse, 100, percent);
-      middleIntakeMotor.spin(reverse, 100, percent);
-    topIntakeMotor.spin(forward, 100, percent);
     } 
+   /*
     // long goal //
     else if (Controller.ButtonR1.pressing()){
       bottombottomIntakeMotor.spin(forward, 100, percent);
@@ -172,7 +162,7 @@ while (true) {
     bottombottomIntakeMotor.spin(reverse, 100, percent);
   }
   
-   
+   */
     
     else{
       bottomIntakeMotor.stop();
@@ -182,6 +172,7 @@ while (true) {
     }
   
   
+
    //pnumatics code//
  
 if (Controller.ButtonA.pressing() && !prevPressed) {

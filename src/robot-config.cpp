@@ -14,11 +14,11 @@ vex::brain Brain;
 
 vex::controller Controller(vex::controllerType::primary);
 vex::motor LB(vex::PORT3, vex::gearSetting::ratio6_1, true); //Left Back Motor
-vex::motor LM(vex::PORT13,  vex::gearSetting::ratio6_1, true); //Left Middle Motor
-vex::motor LF(vex::PORT8, vex::gearSetting::ratio6_1, true); //Left Front Motor
-vex::motor RB(vex::PORT1, vex::gearSetting::ratio6_1, false); //Right Back Motor x
-vex::motor RM(vex::PORT14, vex::gearSetting::ratio6_1, false); //Right Middle Motor
-vex::motor RF(vex::PORT12, vex::gearSetting::ratio6_1, false); //Right Front Motor
+vex::motor LM(vex::PORT16,  vex::gearSetting::ratio6_1, true); //Left Middle Motor
+vex::motor LF(vex::PORT15, vex::gearSetting::ratio6_1, true); //Left Front Motor
+vex::motor RB(vex::PORT11, vex::gearSetting::ratio6_1, false); //Right Back Motor x
+vex::motor RM(vex::PORT12, vex::gearSetting::ratio6_1, false); //Right Middle Motor
+vex::motor RF(vex::PORT13, vex::gearSetting::ratio6_1, false); //Right Front Motor
 
 
 vex::motor_group LeftDrive(LF, LM, LB);
@@ -38,10 +38,10 @@ vex::digital_out SingleActingPiston(Brain.ThreeWirePort.B);
 vex::motor topIntakeMotor(vex::PORT4, vex::gearSetting::ratio6_1, false); //Right Front Motor
 vex::motor middleIntakeMotor(vex::PORT6, vex::gearSetting::ratio6_1, true); //Right Front Motor
 vex::motor bottomIntakeMotor(vex::PORT11, vex::gearSetting::ratio6_1, false); 
-vex::motor bottombottomIntakeMotor(vex::PORT2, vex::gearSetting::ratio6_1, false); //x
+vex::motor bottombottomIntakeMotor(vex::PORT1, vex::gearSetting::ratio6_1, false); //x
 vex::motor_group IntakeMotors(topIntakeMotor,middleIntakeMotor, bottomIntakeMotor);
 
-vex::inertial InertialSensor(vex::PORT20);
+vex::inertial InertialSensor(vex::PORT14);
 
 vex::optical OpticalSensor(vex::PORT18);
 
