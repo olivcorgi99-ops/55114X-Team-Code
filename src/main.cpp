@@ -128,7 +128,7 @@ while (true) {
     //out put for the intake//
   //intake it and score middle goal
   //intake blocks//
-
+//ALL THE INTAKE CODE HERE IS FOR THE NEW TRIANGLE ROBOT//
 
 //for rubberflappy intake//
   if (Controller.ButtonL1.pressing()) {
@@ -138,22 +138,20 @@ while (true) {
     else if (Controller.ButtonL2.pressing()) {
       bottombottomIntakeMotor.spin(reverse, 100, percent);
     } 
-   /*
+   
     // long goal //
     else if (Controller.ButtonR1.pressing()){
       bottombottomIntakeMotor.spin(forward, 100, percent);
       middleIntakeMotor.spin(reverse, 100, percent);
-      bottomIntakeMotor.spin(forward, 100, percent);
-      topIntakeMotor.spin(reverse, 100, percent);
     }
-   //middle high goal//
+  
+    //middle high goal//
     else if (Controller.ButtonR2.pressing()) {
-    bottombottomIntakeMotor.spin(reverse, 100, percent);
+    bottombottomIntakeMotor.spin(forward, 100, percent);
     middleIntakeMotor.spin(forward, 100, percent);
-    topIntakeMotor.spin(forward, 100, percent);
-    bottomIntakeMotor.spin(reverse, 100, percent);
     }
-  //helps intake more blocks// 
+/*
+    //helps intake more blocks// 
   else if (Controller.ButtonX.pressing()){
     bottombottomIntakeMotor.spin(forward, 100, percent);
   }

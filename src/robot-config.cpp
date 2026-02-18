@@ -36,7 +36,7 @@ vex::digital_out DoubleActingPiston2(Brain.ThreeWirePort.C);
 vex::digital_out SingleActingPiston(Brain.ThreeWirePort.B);
 
 vex::motor topIntakeMotor(vex::PORT4, vex::gearSetting::ratio6_1, false); //Right Front Motor
-vex::motor middleIntakeMotor(vex::PORT6, vex::gearSetting::ratio6_1, true); //Right Front Motor
+vex::motor middleIntakeMotor(vex::PORT10, vex::gearSetting::ratio6_1, true); //Right Front Motor
 vex::motor bottomIntakeMotor(vex::PORT11, vex::gearSetting::ratio6_1, false); 
 vex::motor bottombottomIntakeMotor(vex::PORT1, vex::gearSetting::ratio6_1, false); //x
 vex::motor_group IntakeMotors(topIntakeMotor,middleIntakeMotor, bottomIntakeMotor);
