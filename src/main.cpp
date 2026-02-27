@@ -75,7 +75,10 @@ void autonomous(void) {
       leftAuton();
       break;
     case 2:
-      skillsAuton();
+    noauton();
+      break;
+    case 3:  
+    skillsAuton();
       break;
     default:
       Brain.Screen.print("No valid auton selected!");
@@ -172,7 +175,66 @@ while (true) {
   
 
    //pnumatics code//
- 
+   //descoreer
+/*
+   bool pistonExtended = false;
+
+
+    if (Controller.ButtonA.pressing()) {
+
+        pistonExtended = !pistonExtended;
+        DoubleActingPiston.set(pistonExtended);
+
+        while(Controller.ButtonA.pressing()) {
+            wait(20, msec);  // Wait until release
+        }
+    }
+
+    wait(20, msec);
+
+  
+
+bool prevPressed = false;
+bool descorerUp = false;
+
+    if (Controller.ButtonA.pressing() && !prevPressed) {
+        
+        descorerUp = !descorerUp;   // Toggle state
+        prevPressed = true;        // Lock until release
+        
+        DoubleActingPiston.set(descorerUp);
+    }
+
+    if (!Controller.ButtonA.pressing()) {
+        prevPressed = false;       // Reset when released
+    }
+
+    wait(20, msec);
+
+
+
+
+
+
+
+  bool pistonExtended = false;
+    
+if (Controller.ButtonA.pressing()) {
+        pistonExtended = !pistonExtended;
+        DoubleActingPiston.set(pistonExtended);
+
+        while (Controller.ButtonA.pressing()) {
+            wait(10, msec);  // wait for release
+        }
+    }
+
+    wait(20, msec);
+
+
+   
+bool prevPressed = false;
+bool pistonExtended = false;
+
 if (Controller.ButtonA.pressing() && !prevPressed) {
   
     pistonExtended = !pistonExtended;
@@ -184,7 +246,28 @@ else if (!Controller.ButtonA.pressing() && prevPressed) {
 }
 
 wait(20, msec);
+    
+  
+   if(Controller.ButtonA.pressing()) {
+    DoubleActingPiston = !DoubleActingPiston;
+    DoubleActingPiston.set(pistonExtended);
+    wait(20, msec);
+  }
+   
+*/
+  if (Controller.ButtonA.pressing() && !prevPressed) {
+  
+    pistonExtended = !pistonExtended;
+    prevPressed = true;
+    DoubleActingPiston.set(pistonExtended);
+wait(20, msec);
+  }
+else if (!Controller.ButtonA.pressing() && prevPressed) {
+    prevPressed = false;
+}
 
+
+// for matchloader//
 
 if (Controller.ButtonY.pressing() && !prevPressed2) {
   

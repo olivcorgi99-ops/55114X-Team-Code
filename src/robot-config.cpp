@@ -13,12 +13,12 @@ If it seems like some of your motors are running against eachother in the drivet
 vex::brain Brain;
 
 vex::controller Controller(vex::controllerType::primary);
-vex::motor LB(vex::PORT3, vex::gearSetting::ratio6_1, true); //Left Back Motor
-vex::motor LM(vex::PORT16,  vex::gearSetting::ratio6_1, true); //Left Middle Motor
-vex::motor LF(vex::PORT15, vex::gearSetting::ratio6_1, true); //Left Front Motor
-vex::motor RB(vex::PORT11, vex::gearSetting::ratio6_1, false); //Right Back Motor x
-vex::motor RM(vex::PORT12, vex::gearSetting::ratio6_1, false); //Right Middle Motor
-vex::motor RF(vex::PORT13, vex::gearSetting::ratio6_1, false); //Right Front Motor
+vex::motor LB(vex::PORT6, vex::gearSetting::ratio6_1, true); //Left Back Motor yes
+vex::motor LM(vex::PORT4,  vex::gearSetting::ratio6_1, true); //Left Middle Motor yes
+vex::motor LF(vex::PORT5, vex::gearSetting::ratio6_1, true); //Left Front Motor yes
+vex::motor RB(vex::PORT8, vex::gearSetting::ratio6_1, false); //Right Back Motor yes
+vex::motor RM(vex::PORT3, vex::gearSetting::ratio6_1, false); //Right Middle Motor  yes
+vex::motor RF(vex::PORT2, vex::gearSetting::ratio6_1, false); //Right Front Motor yes
 
 
 vex::motor_group LeftDrive(LF, LM, LB);
@@ -30,18 +30,19 @@ vex::drivetrain Drivetrain(LeftDrive, RightDrive, 82.55, 280, 300);
 //vex::motor Arm1(vex::PORT1, vex::gearSetting::ratio18_1, true); //Arm motor
 //vex::motor Arm2(vex::PORT2, vex::gearSetting::ratio18_1, true); //Arm motor
 
-vex::digital_out DoubleActingPiston(Brain.ThreeWirePort.A);
-
-vex::digital_out DoubleActingPiston2(Brain.ThreeWirePort.C);
-vex::digital_out SingleActingPiston(Brain.ThreeWirePort.B);
+vex::digital_out DoubleActingPiston(Brain.ThreeWirePort.D);
+//double acting piston is descorer 
+vex::digital_out DoubleActingPiston2(Brain.ThreeWirePort.E);
+//double acting piston2 is for matchloader
+vex::digital_out SingleActingPiston(Brain.ThreeWirePort.C);
 
 vex::motor topIntakeMotor(vex::PORT4, vex::gearSetting::ratio6_1, false); //Right Front Motor
-vex::motor middleIntakeMotor(vex::PORT10, vex::gearSetting::ratio6_1, true); //Right Front Motor
+vex::motor middleIntakeMotor(vex::PORT18, vex::gearSetting::ratio6_1, true); //Right Front Motor
 vex::motor bottomIntakeMotor(vex::PORT11, vex::gearSetting::ratio6_1, false); 
-vex::motor bottombottomIntakeMotor(vex::PORT1, vex::gearSetting::ratio6_1, false); //x
+vex::motor bottombottomIntakeMotor(vex::PORT7, vex::gearSetting::ratio6_1, false); //x
 vex::motor_group IntakeMotors(topIntakeMotor,middleIntakeMotor, bottomIntakeMotor);
 
-vex::inertial InertialSensor(vex::PORT14);
+vex::inertial InertialSensor(vex::PORT6);
 
 vex::optical OpticalSensor(vex::PORT18);
 
