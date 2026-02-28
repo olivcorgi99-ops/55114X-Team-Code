@@ -10,7 +10,8 @@ using namespace vex;
 
 //4 push red left //
 void leftAuton() {
-drivePID(16, 0.3, 0, 0);
+drivePID(16, 0.2, 0, 0);
+turnPID(90, 0.2, 0, 0);
 //DoubleActingPiston.set(false);  this is how you use pnumatics
 //DoubleActingPiston2.set(false);  this is how you use pnumatics
 } 
@@ -19,7 +20,7 @@ drivePID(16, 0.3, 0, 0);
 
 //4 push blue right//
 void rightAuton() {
-drivePID(36, 0.2, 0, 0);
+drivePID(24, 0.19, 0.0, 0.1);
 
 }
 
@@ -33,3 +34,4 @@ void noauton() {
 drivePID(16, 0.3, 0, 0);
 }
 
+          

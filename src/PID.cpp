@@ -41,11 +41,16 @@ void drivePID(double targetInches, double kP = 0.7, double kI = 0.7, double kD =
     if (power < -100) power = -100;
 
     spinDT(power*0.7);
-    spinDT(power*0.5);
+    spinDT(power*0.7);
 
     task::sleep(20); // small loop delay
   }  
-
+  LF.setBrake(brakeType::brake);
+  LM.setBrake(brakeType::brake);
+  LB.setBrake(brakeType::brake);
+  RF.setBrake(brakeType::brake);
+  RM.setBrake(brakeType::brake);
+  RB.setBrake(brakeType::brake);
   stopDT();
 }
 
