@@ -66,25 +66,17 @@ void turnForTime(double velocity, double time) {
 } 
 
 void runIntake(){
-    bottomIntakeMotor.spin(forward, 100, percent);
-    middleIntakeMotor.spin(reverse, 100, percent);
-    topIntakeMotor.spin(forward, 100, percent);
-     bottombottomIntakeMotor.spin(forward, 100, percent);
 }
 
 void scoreLongGoal(){
     bottomIntakeMotor.spin(forward, 100, percent);
     middleIntakeMotor.spin(reverse, 100, percent);
-    topIntakeMotor.spin(reverse, 100, percent);
-     bottombottomIntakeMotor.spin(forward, 100, percent);
 }
 
 
 
 void runIntakeWithoutTopMotor(){
-    bottomIntakeMotor.spin(forward, 75, percent);
-    middleIntakeMotor.spin(reverse, 75, percent);
-     bottombottomIntakeMotor.spin(forward, 75, percent);
+    bottomIntakeMotor.spin(forward, 100, percent);
 }
 
 void runoutake(){
@@ -105,11 +97,6 @@ void stopIntake(){
     middleIntakeMotor.stop();
     topIntakeMotor.stop();
     bottombottomIntakeMotor.stop();
-}
-
-void curve(double leftPower, double rightPower) {
- spinLeftDT(leftPower * 0.9);
- spinRightDT(rightPower * 0.9);
 }
 
 

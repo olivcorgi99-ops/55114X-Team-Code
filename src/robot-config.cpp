@@ -42,9 +42,9 @@ vex::motor bottomIntakeMotor(-1, vex::gearSetting::ratio6_1, false);
 vex::motor bottombottomIntakeMotor(vex::PORT7, vex::gearSetting::ratio6_1, false); //x
 vex::motor_group IntakeMotors(topIntakeMotor,middleIntakeMotor, bottomIntakeMotor);
 
-vex::inertial InertialSensor(vex::PORT6);
+vex::inertial InertialSensor(vex::PORT1);
 
-vex::optical OpticalSensor(vex::PORT18);
+vex::optical OpticalSensor(vex::PORT17);
 
 vex::digital_out matchloader = vex::digital_out(Brain.ThreeWirePort.A);
 

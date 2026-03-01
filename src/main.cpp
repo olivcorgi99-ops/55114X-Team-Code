@@ -123,8 +123,8 @@ while (true) {
     double leftPower  = fwd + turn;
     double rightPower = fwd - turn;
 
-    spinLeftDT(leftPower * 0.9);
-    spinRightDT(rightPower * 0.9);
+    spinLeftDT(leftPower * 0.6);
+    spinRightDT(rightPower * 0.6);
 
    
     // ========== INTAKE ========== //

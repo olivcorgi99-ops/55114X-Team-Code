@@ -7,7 +7,7 @@
 using namespace vex;
 
 
-void drivePID(double targetInches, double kP = 0.7, double kI = 0.7, double kD = 1.8) { 
+void drivePID(double targetInches, double kP, double kI, double kD) { 
 
   double targetDegrees = inchesToDegrees(targetInches);
 
@@ -40,17 +40,11 @@ void drivePID(double targetInches, double kP = 0.7, double kI = 0.7, double kD =
     if (power > 100) power = 100;
     if (power < -100) power = -100;
 
-    spinDT(power*0.7);
-    spinDT(power*0.7);
+    spinDT(power*0.55);
+    spinDT(power*0.55);
 
     task::sleep(20); // small loop delay
   }  
-  LF.setBrake(brakeType::brake);
-  LM.setBrake(brakeType::brake);
-  LB.setBrake(brakeType::brake);
-  RF.setBrake(brakeType::brake);
-  RM.setBrake(brakeType::brake);
-  RB.setBrake(brakeType::brake);
   stopDT();
 }
 
@@ -102,9 +96,8 @@ void drivePIDPlus(double targetInches, double kP, double kI, double kD, drivePID
   stopDT();
 }
 
-//WARNING:kP, kI, and kD values are not correct, need to update yourself
-void turnPID(double targetAngle, double kP = 0.12, double kI = 0.3, double kD = 0.24) {
-  
+void turnPID(double targetAngle, double kP, double kI, double kD) {
+
   double dir = targetAngle/fabs(targetAngle);
   // Reset inertial and motor encoders
   InertialSensor.setRotation(0, degrees);
@@ -121,7 +114,7 @@ void turnPID(double targetAngle, double kP = 0.12, double kI = 0.3, double kD = 
 
 
   // loop til we’re close
-  while (fabs(err) > 1.0) {
+  while (fabs(err) > 3.5) {
     err = targetAngle - fabs(InertialSensor.rotation(degrees));
     integ += err;
     if (integ >  maxI) integ =  maxI;
