@@ -76,7 +76,7 @@ void scoreLongGoal(){
 
 
 void runIntakeWithoutTopMotor(){
-    bottomIntakeMotor.spin(forward, 100, percent);
+    bottombottomIntakeMotor.spin(forward, 100, percent);
 }
 
 void runoutake(){
@@ -96,7 +96,7 @@ void stopIntake(){
     bottomIntakeMotor.stop();
     middleIntakeMotor.stop();
     topIntakeMotor.stop();
-    bottombottomIntakeMotor.stop();
+    bottombottomIntakeMotor.stop(); 
 }
 
 
