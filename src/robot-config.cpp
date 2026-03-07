@@ -34,7 +34,7 @@ vex::digital_out DoubleActingPiston(Brain.ThreeWirePort.D);
 //double acting piston is descorer 
 vex::digital_out DoubleActingPiston2(Brain.ThreeWirePort.E);
 //double acting piston2 is for matchloader
-vex::digital_out SingleActingPiston(Brain.ThreeWirePort.C);
+vex::digital_out SingleActingPiston(Brain.ThreeWirePort.H);
 
 vex::motor topIntakeMotor(-1, vex::gearSetting::ratio6_1, false); //Right Front Motor
 vex::motor middleIntakeMotor(vex::PORT18, vex::gearSetting::ratio6_1, true); //Right Front Motor

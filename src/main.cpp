@@ -115,6 +115,8 @@ void usercontrol(void) {
 bool pistonExtended = false;
   bool prevPressed2 = false;
 bool pistonExtended2 = false;
+bool prevPressed3 = false;
+bool pistonExtended3 = false;
  
 while (true) {
     // ========== DRIVE CONTROL ========== //
@@ -146,6 +148,7 @@ while (true) {
     else if (Controller.ButtonR1.pressing()){
       bottombottomIntakeMotor.spin(forward, 100, percent);
       middleIntakeMotor.spin(reverse, 100, percent);
+      SingleActingPiston.set(true);
     }
   
     //middle high goal//
@@ -277,6 +280,18 @@ if (Controller.ButtonY.pressing() && !prevPressed2) {
 }
 else if (!Controller.ButtonY.pressing() && prevPressed2) {
     prevPressed2 = false;
+}
+
+wait(20, msec);
+
+if (Controller.ButtonX.pressing() && !prevPressed3) {
+  
+    pistonExtended3 = !pistonExtended3;
+    prevPressed3 = true;
+    SingleActingPiston.set(pistonExtended3);
+}
+else if (!Controller.ButtonX.pressing() && prevPressed3) {
+    prevPressed3 = false;
 }
 
 wait(20, msec);

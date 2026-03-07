@@ -69,7 +69,7 @@ void runIntake(){
 }
 
 void scoreLongGoal(){
-    bottomIntakeMotor.spin(forward, 100, percent);
+    bottombottomIntakeMotor.spin(forward, 100, percent);
     middleIntakeMotor.spin(reverse, 100, percent);
 }
 
