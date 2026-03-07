@@ -115,7 +115,9 @@ void usercontrol(void) {
 bool pistonExtended = false;
   bool prevPressed2 = false;
 bool pistonExtended2 = false;
- 
+bool prevPressed3 = false;
+bool pistonExtended3 = false; 
+
 while (true) {
     // ========== DRIVE CONTROL ========== //
     double fwd = Controller.Axis3.position(percentUnits::pct);
@@ -152,7 +154,9 @@ while (true) {
     else if (Controller.ButtonR2.pressing()) {
     bottombottomIntakeMotor.spin(forward, 100, percent);
     middleIntakeMotor.spin(forward, 100, percent);
+    DoubleActingPiston3.set(false);
     }
+
 /*
     //helps intake more blocks// 
   else if (Controller.ButtonX.pressing()){
@@ -170,6 +174,7 @@ while (true) {
       middleIntakeMotor.stop();
       topIntakeMotor.stop();
       bottombottomIntakeMotor.stop();
+      DoubleActingPiston3.set(true);
     }
   
   
@@ -277,6 +282,18 @@ if (Controller.ButtonY.pressing() && !prevPressed2) {
 }
 else if (!Controller.ButtonY.pressing() && prevPressed2) {
     prevPressed2 = false;
+}
+
+wait(20, msec);
+
+if (Controller.ButtonX.pressing() && !prevPressed3) {
+  
+    pistonExtended3 = !pistonExtended3;
+    prevPressed3 = true;
+    DoubleActingPiston3.set(pistonExtended3);
+}
+else if (!Controller.ButtonX.pressing() && prevPressed3) {
+    prevPressed3 = false;
 }
 
 wait(20, msec);

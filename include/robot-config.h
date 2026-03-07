@@ -36,6 +36,7 @@ extern vex::optical OpticalSensor;
 
 extern vex::digital_out DoubleActingPiston;
 extern vex::digital_out DoubleActingPiston2;
+extern vex::digital_out DoubleActingPiston3;
 extern vex::digital_out SingleActingPiston;
 
 extern vex::digital_out matchloader;
