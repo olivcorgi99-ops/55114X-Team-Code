@@ -33,7 +33,7 @@ turnPID(60, 0.17, 0, 0);
 drivePID(-9.7, 0.12, 0, 0);
 turnPID(-62.5, 0.17, 0, 0);
 DoubleActingPiston.set(false);
-drivePID(-16, 0.7, 0, 0);
+drivePID(-14, 0.3, 0, 0);
 
     
 
