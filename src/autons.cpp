@@ -22,14 +22,22 @@ scoreLongGoal();
 void rightAuton() {
 
 DoubleActingPiston3.set(true);
+DoubleActingPiston.set(true);
 drivePID(26.5, 0.15, 0, 0);
 turnPID(-85, 0.17, 0, 0);
 drivePID(-20, 0.3, 0, 0);
 scoreLongGoal();
-wait(3, sec);
-drivePID(6, 0.3, 0, 0);
+wait(1.2, sec);
+drivePID(7.5, 0.12, 0, 0);
+turnPID(60, 0.17, 0, 0);
+drivePID(-9.7, 0.12, 0, 0);
+turnPID(-62.5, 0.17, 0, 0);
+DoubleActingPiston.set(false);
+drivePID(-16, 0.7, 0, 0);
 
-    /*DoubleActingPiston3.set(true);
+    
+
+/*DoubleActingPiston3.set(true);
 drivePID(27.5, 0.18, 0, 0);
 turnPID(-90.5, 0.2, 0, 0);
 runIntakeWithoutTopMotor();
